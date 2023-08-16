@@ -119,32 +119,32 @@ alert("su resultado con iva incluido hasta el momento es de $" + resultado * 1.2
 
 const extras = [
     {
-        nombre: "gaseosa cocacola",
+        nombre: "cocacola",
         precio: 750
     },
 
     {
-        nombre: "gaseosa pepsi",
+        nombre: "pepsi",
         precio: 750
     },
 
     {
-        nombre: "gaseosa sprite",
+        nombre: "sprite",
         precio: 750
     },
 
     {
-        nombre: "gaseosa 7up",
+        nombre: "7up",
         precio: 750
     },
 
     {
-        nombre: "gaseosa mirinda",
+        nombre: "mirinda",
         precio: 750
     },
 
     {
-        nombre: "gaseosa fanta",
+        nombre: "fanta",
         precio: 750
     } 
 ]
@@ -153,14 +153,31 @@ let compras = prompt ("Le gustaría comprar alguna bebida? ponga *si* para proce
 
 if (compras === "si") {
 
-do{
-    filtro = prompt ("Ingrese el nombre de la bebida que desea a comprar:\n1) cocacola\n2) pepsi\n3) sprite\n4) 7up\n5)mirinda \n6) fanta")
-}while (filtro != "cintas" && filtro != "mousepad" && filtro != "gomitas" && filtro != "guantes" && filtro != "estuches")
+    do {
+        filtro = prompt("Ingrese el nombre de la bebida que desea comprar:\n1) cocacola\n2) pepsi\n3) sprite\n4) 7up\n5) mirinda\n6) fanta");
+    } while (filtro !== "cocacola" && filtro !== "pepsi" && filtro !== "sprite" && filtro !== "7up" && filtro !== "mirinda" && filtro !== "fanta");
+    
+    const resultadoFinal = extras.filter((item) => item.nombre === filtro);
+    
+    do {
+        final = prompt("Ingrese el nombre del producto a comprar:\n1) " + resultadoFinal[0].nombre + "\n2) " + resultadoFinal[1].nombre + "\n3) " + resultadoFinal[2].nombre);
+    } while (final !== resultadoFinal[0].nombre && final !== resultadoFinal[1].nombre && final !== resultadoFinal[2].nombre);
+    
+    //Calcular el precio de los elementos adicionales seleccionados
+    let precioExtra = resultadoFinal.find((item) => item.nombre === final).precio;
+    let totalPrecioExtra = precioExtra * unidadesAccesorios;
+    
+    alert("Su precio en bebidas es de $" + totalPrecioExtra + ". Y su precio final de compra es de $" + (resultado + totalPrecioExtra));
+    
+    if (iva == 1) {
+        let montoIva = (resultado + totalPrecioExtra) * 0.21;
+        let precioTotalConIva = (resultado + totalPrecioExtra) * 1.21;
+        alert("Su IVA es de $" + montoIva);
+        alert("Y su precio final con el IVA sumado es de $" + precioTotalConIva);
+    } else {
+        alert("Vale...");
+    }
 
-
-const resultadoFinal = extras.filter(
-    (a) => a.nombre.includes(filtro)
-)
 
 //resultadoFinal.forEach((filtro=>{prompt(filtro.nombre)}))
 
