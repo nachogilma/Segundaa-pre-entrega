@@ -14,7 +14,7 @@ do {
 
 let direccion = prompt ("Hola " + nombre + ", ingrese donde quiere que entregemos su pedido porfavor")
 
-alert ("Perfecto  " + nombre + ", su pedido sera realizado en la direcion   " + direccion + "   y cuando arrive su pedido se le llamara a su numero celular    " +celular)
+alert ("Perfecto  " + nombre + ", su pedido sera realizado en la direcion " + direccion + " y cuando arrive su pedido se le llamara a su numero celular " +celular)
 
 //declaro bucle para la edad
 
@@ -156,39 +156,50 @@ if (compras === "si") {
     do {
         filtro = prompt("Ingrese el nombre de la bebida que desea comprar:\n1) cocacola\n2) pepsi\n3) sprite\n4) 7up\n5) mirinda\n6) fanta");
     } while (filtro !== "cocacola" && filtro !== "pepsi" && filtro !== "sprite" && filtro !== "7up" && filtro !== "mirinda" && filtro !== "fanta");
+
     
-    const resultadoFinal = extras.filter((item) => item.nombre === filtro);
+    //unidadesAccesorios = prompt ('cuantas unidades desearia comprar ?.')
+
+    const resultadoFinal = extras . find((item) => item . nombre === filtro);
+    
+    alert("usted eligio comprar" + resultadoFinal. nombre);
+
+    unidadesAccesorios = parseInt(prompt("cuantas unidades de " + resultadoFinal . nombre + "desea?"))
+
+    //calcular el precio de los elementos adicionales seleccionados
+    
+    let totalPrecioExtra = resultadoFinal . precio * unidadesAccesorios;
+
+    alert("su precio en bebidas es de  $ " + totalPrecioExtra + " . y su precio final de compra es de $ " +( resultado + totalPrecioExtra + precio));
     
     do {
-        final = prompt("Ingrese el nombre del producto a comprar:\n1) " + resultadoFinal[0].nombre + "\n2) " + resultadoFinal[1].nombre + "\n3) " + resultadoFinal[2].nombre);
-    } while (final !== resultadoFinal[0].nombre && final !== resultadoFinal[1].nombre && final !== resultadoFinal[2].nombre);
+        final = prompt("Ingrese el nombre del producto a comprar:\n1) " + resultadoFinal[0] . nombre + "\n2) " + resultadoFinal[1] . nombre + "\n3) " + resultadoFinal[2] . nombre);
+    } while (final !== resultadoFinal[0] . nombre && final !== resultadoFinal[1] . nombre && final !== resultadoFinal[2] . nombre);
     
     //Calcular el precio de los elementos adicionales seleccionados
-    let precioExtra = resultadoFinal.find((item) => item.nombre === final).precio;
-    let totalPrecioExtra = precioExtra * unidadesAccesorios;
+    let precioExtra = resultadoFinal. find((item) => item . nombre === final) . precio;
+    let = precioExtra * unidadesAccesorios;
     
     alert("Su precio en bebidas es de $" + totalPrecioExtra + ". Y su precio final de compra es de $" + (resultado + totalPrecioExtra));
     
     if (iva == 1) {
-        let montoIva = (resultado + totalPrecioExtra) * 0.21;
+        //let montoIva = (resultado + totalPrecioExtra) * 0.21;
         let precioTotalConIva = (resultado + totalPrecioExtra) * 1.21;
         alert("Su IVA es de $" + montoIva);
         alert("Y su precio final con el IVA sumado es de $" + precioTotalConIva);
     } else {
         alert("Vale...");
     }
-
-
 //resultadoFinal.forEach((filtro=>{prompt(filtro.nombre)}))
 
 do{
-    final = prompt("Ingrese el nombre del producto a comprar:\n1)" + resultadoFinal[0].nombre + "\n2)" + resultadoFinal[1].nombre + "\n3)" + resultadoFinal[2].nombre )
-}while (final != resultadoFinal[0].nombre && final != resultadoFinal[1].nombre && final != resultadoFinal[2].nombre)
+    final = prompt("Ingrese el nombre del producto a comprar:\n1)" + resultadoFinal[0] . nombre + "\n2)" + resultadoFinal[1] . nombre + "\n3)" + resultadoFinal[2] . nombre )
+}while (final != resultadoFinal[0] . nombre && final != resultadoFinal[1] . nombre && final != resultadoFinal[2] . nombre)
 
 
-do{
-    unidadesAccesorios = parseInt( prompt("cuantas unidades desea va a comprar?"))
-}while(unidadesAccesorios < 1 || isNaN(unidadesAccesorios))
+//do{
+//    unidadesAccesorios = parseInt( prompt("cuantas unidades desea va a comprar?"))
+//}while(unidadesAccesorios < 1 || isNaN(unidadesAccesorios))
 
 /*
 switch (final) {
